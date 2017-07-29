@@ -11,7 +11,7 @@
     <div class="container calc">
         <h1>Football player value calculation</h1>
         <div class="row">
-            <fieldset class="col-3" id="calc">
+            <fieldset class="col-4" id="calc">
                 <legend>Player information</legend>
                 <div class="form-group">
                     <label for="age">Age</label>
@@ -37,29 +37,29 @@
                         <option selected>Experience</option>
                     </select>
                 </div>
-                <div class="row justify-content-between">
-                    <fieldset class="form-group col-6">
-                        <legend class="col-form-legend">Youth academy</legend>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radios" id="radio1" value="yes">Yes
-                            </label>
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radios" id="radio2" value="no">No
-                            </label>
-                        </div>
-                    </fieldset>
-                    <fieldset class="form-group col-6">
+                <div class="row justify-content-around">
+                    <fieldset class="form-group col-5">
                         <legend class="col-form-legend">Currency</legend>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radios" id="radio1" value="pound">&#163;
+                                <input type="radio" class="form-check-input" name="currency" id="pound" value="pound">&#163;
                             </label>
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radios" id="radio2" value="dollar">&#36;
+                                <input type="radio" class="form-check-input" name="currency" id="dollar" value="dollar">&#36;
                             </label>
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radios" id="radio2" value="euro">&#8364;
+                                <input type="radio" class="form-check-input" name="currency" id="euro" value="euro">&#8364;
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group col-5">
+                        <legend class="col-form-legend">Youth academy</legend>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="academy" id="yes" value="yes">Yes
+                            </label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="academy" id="no" value="no">No
                             </label>
                         </div>
                     </fieldset>

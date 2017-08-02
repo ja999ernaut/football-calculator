@@ -77,18 +77,22 @@ var age = document.querySelector('#age'),
 
 age.onchange = function() {
     selectAgeOption = document.querySelector('#age option:checked').dataset.index;
+    calculate();
 }
 
 experience.onchange = function() {
     selectExperienceOption = document.querySelector('#experience option:checked').dataset.index;
+    calculate();
 }
 
 contract.onchange = function() {
     selectContractOption = document.querySelector('#contract option:checked').dataset.index;
+    calculate();
 }
 
 position.onchange = function() {
     selectPositionOption = document.querySelector('#position option:checked').dataset.index;
+    calculate();
 }
 
 currency.onchange = function selectCurrency() {
@@ -113,4 +117,21 @@ academy.onchange = function selectAcademy() {
         purchase.value = '';
         selectAcademyOption = document.querySelector('#academy label > input:checked').dataset.index;
     };
+    calculate();
+}
+
+calculateButton.onclick = function () {
+    var info = document.querySelector('#info');
+    info.removeAttribute('hidden');
+    calculate();
+}
+
+function calculate() {
+    var infoValue = document.querySelector('#infoValue'),
+        purchaseValue = purchase.value * 0.35,
+        salaryValue = salary.value * 3,
+        sum = parseInt(salaryValue) * selectContractOption * selectAgeOption * selectExperienceOption * selectPositionOption * selectAcademyOption,
+        total = (parseInt(sum) + parseInt(purchaseValue)).toString(),
+        totalRegexp = total.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+        infoValue.innerText = totalRegexp;
 }

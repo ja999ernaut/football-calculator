@@ -28,7 +28,16 @@ var age = document.querySelector('#age'),
     experience = document.querySelector('#experience'),
     contract = document.querySelector('#contract'),
     position = document.querySelector('#position'),
-    currency = document.querySelector('#currency');
+    currency = document.querySelector('#currency'),
+    academy = document.querySelector('#academy'),
+    purchase = document.querySelector('#purchase-value'),
+    salary = document.querySelector('#salary'),
+    calculateButton = document.querySelector('#calculate'),
+    selectAgeOption = 1,
+    selectExperienceOption = 1,
+    selectContractOption = 1,
+    selectPositionOption = 1,
+    selectAcademyOption = 1;
 
 (function insertAge() {
     for (var age_key in age_option) {
@@ -65,3 +74,43 @@ var age = document.querySelector('#age'),
         position.appendChild(positionContent);
     }
 })();
+
+age.onchange = function() {
+    selectAgeOption = document.querySelector('#age option:checked').dataset.index;
+}
+
+experience.onchange = function() {
+    selectExperienceOption = document.querySelector('#experience option:checked').dataset.index;
+}
+
+contract.onchange = function() {
+    selectContractOption = document.querySelector('#contract option:checked').dataset.index;
+}
+
+position.onchange = function() {
+    selectPositionOption = document.querySelector('#position option:checked').dataset.index;
+}
+
+currency.onchange = function selectCurrency() {
+    var checkedCurrency = document.querySelector('#currency label > input:checked'),
+        parentCurrencyNode = checkedCurrency.parentNode,
+        currencyValue = document.querySelector('#currencyValue'),
+        selectCurrencyOption = parentCurrencyNode.children[2].innerHTML;
+    currencyValue.innerText = selectCurrencyOption;
+}
+
+academy.onchange = function selectAcademy() {
+    var checkedAcademy = document.querySelector('#academy label > input:checked'),
+        parentAcademyNode = checkedAcademy.parentNode,
+        youthAcademy = parentAcademyNode.children[2].innerText;
+
+    if(youthAcademy == 'Yes') {
+        purchase.setAttribute('disabled', 'disabled');
+        purchase.value = 0;
+        selectAcademyOption = document.querySelector('#academy label > input:checked').dataset.index;
+    } else {
+        purchase.removeAttribute('disabled');
+        purchase.value = '';
+        selectAcademyOption = document.querySelector('#academy label > input:checked').dataset.index;
+    };
+}

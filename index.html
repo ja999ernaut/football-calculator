@@ -9,75 +9,94 @@
 </head>
 <body>
     <div class="container calc">
-        <h1>Football player value calculation</h1>
-        <div class="row">
-            <fieldset class="col-4" id="calc">
-                <legend>Player information</legend>
+        <div class="row justify-content-center">
+            <h1>Football player transfer value</h1>
+        </div>
+        <div class="row justify-content-around" id="calc">
+            <div class="col-3">
                 <div class="form-group">
                     <label for="age">Age</label>
                     <select id="age" class="form-control">
-                        <option selected>Age</option>
+                         <option data-index="1" selected>Choose age</option>
+                         <option disabled>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</option> 
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="position">Position</label>
                     <select id="position" class="form-control">
-                        <option selected>Position</option>
+                        <option data-index="1" selected>Choose position</option>
+                        <option disabled>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</option>
                     </select>
                 </div>
+            </div>
+            <div class="col-3">
                 <div class="form-group">
-                    <label for="contract">Contract</label>
+                    <label for="contract">Contract end</label>
                     <select id="contract" class="form-control">
-                        <option selected>Contract</option>
+                         <option data-index="1" selected>Choose contract end</option>
+                         <option disabled>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</option> 
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="experience">Experience</label>
                     <select id="experience" class="form-control">
-                        <option selected>Experience</option>
+                        <option data-index="1" selected>Choose league</option>
+                        <option disabled>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</option>
                     </select>
                 </div>
-                <div class="row justify-content-around">
-                    <fieldset class="form-group col-5">
-                        <legend class="col-form-legend">Currency</legend>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="currency" id="pound" value="pound">&#163;
-                            </label>
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="currency" id="dollar" value="dollar">&#36;
-                            </label>
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="currency" id="euro" value="euro">&#8364;
-                            </label>
-                        </div>
-                    </fieldset>
-                    <fieldset class="form-group col-5">
-                        <legend class="col-form-legend">Youth academy</legend>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="academy" id="yes" value="yes">Yes
-                            </label>
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="academy" id="no" value="no">No
-                            </label>
-                        </div>
-                    </fieldset>
-                </div>
+            </div>
+            <div class="col-3 align-items-center">
+                <fieldset class="form-group">
+                    <legend class="col-form-legend">Currency</legend>
+                    <div class="form-check" id="currency">
+                        <label for="pound" class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="currency" id="pound" value="pound"><span class="custom-control-indicator"></span><span class="custom-control-description">&#163;</span>
+                        </label>
+                        <label for="dollar" class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="currency" id="dollar" value="dollar"><span class="custom-control-indicator"></span><span class="custom-control-description">&#36;</span>
+                        </label>
+                        <label for="euro" class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="currency" id="euro" value="euro"><span class="custom-control-indicator"></span><span class="custom-control-description">&#8364;</span>
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <legend class="col-form-legend">Youth academy</legend>
+                    <div class="form-check" id="academy">
+                        <label for="yes" class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" data-index="1.2" name="academy" id="yes" value="yes">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Yes</span>
+                        </label>
+                        <label for="no" class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" data-index="1" name="academy" id="no" value="no">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">No</span>
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-3" id="inputValue">
                 <div class="form-group">
                     <label for="purchase-value">Purchase value</label>
-                    <input class="form-control" id="purchase-value" placeholder="0">
+                    <input class="form-control" style="text-align:center" id="purchase-value" maxlength="9">
                 </div>
                 <div class="form-group">
-                    <label for="salary">Salary</label>
-                    <input class="form-control" id="salary" placeholder="0">
+                    <label for="salary">Salary (per year)</label>
+                    <input class="form-control" style="text-align:center" id="salary" maxlength="9">
                 </div>
-                <button type="button" class="btn btn-success">Calculate</button> 
-            </fieldset>
+            </div>
         </div>
+        <div class="row justify-content-around">
+            <button type="button" class="btn btn-success col-2" id="calculate">Calculate</button>
+            <div class="col-6" id="info" hidden>
+                <h3 style="text-align:center">Approximate value is <span id="infoValue"></span><span id="currencyValue"></span></h3>
+            </div>
+        </div>           
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
